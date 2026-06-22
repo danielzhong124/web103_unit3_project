@@ -11,6 +11,7 @@ const createEventsTable = async () => {
             title VARCHAR(255) NOT NULL,
             datetime TIMESTAMP NOT NULL,
             image VARCHAR(255) NOT NULL
+            location_id INT NOT NULL REFERENCES locations(id)
         )
     `
   try {

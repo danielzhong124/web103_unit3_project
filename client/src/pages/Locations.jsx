@@ -5,13 +5,20 @@ import '../css/Locations.css'
 
 const Locations = () => {
   const [locations, setLocations] = useState([])
-  const [venueNames, setVenueNames] = useState([])
+  const [venueNames, setVenueNames] = useState({ venue1: '', venue2: '', venue3: '', venue4: '' })
 
   useEffect(() => {
     ;(async () => {
       try {
         const locationsData = await LocationsAPI.getAllLocations()
         setLocations(locationsData)
+
+        setVenueNames({
+          venue1: locationsData[0].name,
+          venue2: locationsData[1].name,
+          venue3: locationsData[2].name,
+          venue4: locationsData[3].name,
+        })
         setListeners()
       } catch (error) {
         throw error

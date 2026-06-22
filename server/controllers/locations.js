@@ -2,7 +2,7 @@ import { pool } from '../config/database'
 
 const getLocations = async (req, res) => {
   try {
-    const selectQuery = 'SELECT * FROM locations ORDER BY id ASC'
+    const selectQuery = 'SELECT * FROM locations ORDER BY id'
     const result = await pool.query(selectQuery)
     res.status(200).json(result.rows)
   } catch (error) {
